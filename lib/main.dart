@@ -156,7 +156,16 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFormField(
               controller: _emailController,
               decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Colors.amber,
+                    width: 2
+                  )
+                ),
                 labelText: " Enter Your Email",
+                // labelStyle: TextStyle(color: Colors.black),
+                floatingLabelStyle: TextStyle(color: Colors.amber,fontWeight: FontWeight.bold),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10)
                 ),
@@ -172,7 +181,15 @@ class _LoginScreenState extends State<LoginScreen> {
       TextFormField(
       controller: _passwordController,
       decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+                color: Colors.amber,
+                width: 2
+            )
+        ),
         labelText: "Enter Your Password",
+        floatingLabelStyle: TextStyle(color: Colors.amber,fontWeight: FontWeight.bold),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -194,7 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
       obscureText: _obscureText,
       obscuringCharacter: '*',
     ),
-            SizedBox(height: 40.0),
+            SizedBox(height: 80.0),
             ElevatedButton(
               onPressed: () => _login(context),
               style: ElevatedButton.styleFrom(
@@ -229,7 +246,7 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[800],
       appBar: AppBar(
-        title: Text("Register",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+        title: Text("Register to Create an Account",style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
         backgroundColor: Colors.orangeAccent,
       ),
       body:
@@ -239,7 +256,16 @@ class RegisterScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Name",
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                            color: Colors.amber,
+                            width: 2
+                        )
+                    ),
+                    labelText: "Enter Your Name",
+                    floatingLabelStyle: TextStyle(color: Colors.amber,fontWeight: FontWeight.bold),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)
                     ),
@@ -247,9 +273,18 @@ class RegisterScreen extends StatelessWidget {
                     fillColor: Colors.grey.shade300,
                     prefixIcon: Icon(Icons.face,color: Colors.grey,),),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 16),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Email",
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                            color: Colors.amber,
+                            width: 2
+                        )
+                    ),
+                    labelText: "Enter Your Email",
+                    floatingLabelStyle: TextStyle(color: Colors.amber,fontWeight: FontWeight.bold),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)
                     ),
@@ -257,9 +292,18 @@ class RegisterScreen extends StatelessWidget {
                     fillColor: Colors.grey.shade300,
                     prefixIcon: Icon(Icons.email,color: Colors.grey,),),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 16),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Password",
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                            color: Colors.amber,
+                            width: 2
+                        )
+                    ),
+                    labelText: "Enter Your Password",
+                    floatingLabelStyle: TextStyle(color: Colors.amber,fontWeight: FontWeight.bold),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)
                     ),
@@ -271,11 +315,11 @@ class RegisterScreen extends StatelessWidget {
                   obscureText: true,
                   obscuringCharacter: '*',
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 80),
                 ElevatedButton(
                   onPressed: () => _register(context),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
+                    backgroundColor: Colors.deepOrange,
                   ),
                   child: Text("Register",style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold)),
                 ),
@@ -299,7 +343,7 @@ class HomePage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(), // Close dialog
-              child: Text("Cancel"),
+              child: Text("Cancel",style: TextStyle(color: Colors.blueAccent,fontWeight: FontWeight.bold),),
             ),
             TextButton(
               onPressed: () {
@@ -309,7 +353,7 @@ class HomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
-              child: Text("Logout", style: TextStyle(color: Colors.red)),
+              child: Text("Logout", style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold)),
             ),
           ],
         );
@@ -381,6 +425,8 @@ class HomePage extends StatelessWidget {
             _buildContainer(context, "Tuition Offers", Colors.red.shade300, TuitionPage()),
             _buildContainer(context, "about_us", Colors.cyan.shade300, about_us()),
             _buildContainer(context, "  Join Our\nCommunity", Colors.purple.shade300, our_community()),
+            // _buildContainer(context, "Resources and Important Documents", Colors.purple.shade300, resources()),
+
           ],
         ),
       ),
@@ -397,6 +443,7 @@ class HomePage extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
+
           color: color,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
@@ -423,7 +470,10 @@ class HomePage extends StatelessWidget {
   }
 }
 
+
 // Different pages for navigation
+
+
 class Alumni_Directory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -488,10 +538,10 @@ class _TuitionPageState extends State<TuitionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[400],
+      backgroundColor: Colors.grey[700],
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
-        title: Text("Tuition Offers"),
+        backgroundColor: Colors.yellowAccent,
+        title: Text("Tuition Offers",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -502,25 +552,33 @@ class _TuitionPageState extends State<TuitionPage> {
               maxLines: null,
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                        color: Colors.deepOrange,
+                        width: 2
+                    )
+                ),
                 labelText: "Enter Tuition Offer",
+                floatingLabelStyle: TextStyle(color: Colors.deepOrange,fontWeight: FontWeight.bold),
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                 filled: true,
                 fillColor: Colors.grey.shade200,
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: _addTuitionOffer,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.redAccent,
               ),
-              child: Text("Add Offer", style: TextStyle(color: Colors.white)),
+              child: Text("Add Offer", style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
             ),
             SizedBox(height: 20),
             Expanded(
               child: _tuitionOffers.isEmpty
                   ? Center(
-                child: Text("No tuition offers yet", style: TextStyle(fontSize: 18)),
+                child: Text("No tuition offers yet", style: TextStyle(fontSize: 25,color: Colors.black,fontWeight: FontWeight.bold)),
               )
                   : ListView.builder(
                 itemCount: _tuitionOffers.length,
@@ -551,14 +609,108 @@ class _TuitionPageState extends State<TuitionPage> {
   }
 }
 
-class our_community extends StatelessWidget {
+class  our_community extends StatelessWidget {
+  void _join_page(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.blue.shade300,
-          title: Text("Join Our Community")),
-      body: Center(child: Text("please fill the form to be a part of us", style: TextStyle(fontSize: 24))),
+      backgroundColor: Colors.grey[900],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Text(
+                "Please Provide the following Information",
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 10),
+              Expanded(
+                child: ListView(
+                  children: [
+                    _buildInputField("Name"),
+                    _buildInputField("Department"),
+                    _buildInputField("Series"),
+                    _buildInputField("Current University/\nCurrent Company"),
+                    _buildInputField("Present Address"),
+                    _buildInputField("Facebook ID"),
+                    _buildInputField("LinkedIn"),
+                    _buildInputField("Email"),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red,
+                        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () => _join_page(context),
+                      child: Text(
+                        "Submit",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInputField(String label) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 140, // Fixed width for all labels
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              decoration: BoxDecoration(
+                color: Colors.amber[700],
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(8),
+                  bottomLeft: Radius.circular(8),
+                ),
+              ),
+              child: Text(
+                label,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -574,3 +726,4 @@ class about_us extends StatelessWidget {
     );
   }
 }
+
